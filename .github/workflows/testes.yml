@@ -1,0 +1,25 @@
+name: E2E Testes
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Get code
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Setup Python 
+    uses: actions/setup-python@v5.1.1
+    with:
+        python-version: 3.12
